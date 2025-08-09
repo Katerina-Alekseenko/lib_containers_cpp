@@ -7,7 +7,6 @@ CFLAGS = -std=c++17 -Wall -Werror -Wextra -Wno-sign-compare
 SRC_TEST_DIR = tests/
 SRC_TEST = $(wildcard $(SRC_TEST_DIR)*.cpp)
 
-# Для coverage
 GCOV_FLAGS = -fprofile-arcs -ftest-coverage
 LCOV = lcov
 GENHTML = genhtml
@@ -32,7 +31,6 @@ else
 	leaks --atExit -- ./test
 endif
 
-# Цели для coverage
 coverage: clean
 	$(CC) $(CFLAGS) $(GCOV_FLAGS) $(SRC_TEST) -o test $(TEST_LIBS)
 	./test
